@@ -1,0 +1,30 @@
+<!-- extends es para traer la estructura HTML ('base.html' es mi archivo) -->
+{% extends 'base.html' %}
+
+<!-- block title le da valor al título de la pestaña web-->
+{% block title %}Página "Hello!"{% endblock %}
+
+<!-- block content es el contenido de la página -->
+{% block content %}
+    {% if data.name is none and data.age is none and data.email is none %}
+        <h2>¡Hola, mundo!</h2>
+
+    {% elif data.age is none and data.email is none %}
+        <h2>¡Hola, <a style="color:HotPink">{{ data.name }}</a>!</h2>
+
+    {% elif data.email is none %}
+        <h2>¡Hola, <a style="color:HotPink">{{ data.name }}</a>! Tienes <a style="color:HotPink">{{ data.age }} años</a>.</h2>
+
+    {% else %}
+        <h1>Mis datos:</h1>
+        <h3 style="color:LightPink">-- No compartir con nadie --</h3>
+        <ul>
+            <li>Nombre: <a style="color:HotPink">{{ data.name }}</a></li>
+            <li>Edad: <a style="color:HotPink">{{ data.age }} años</a></li>
+            <li>Correo: <a style="color:HotPink">{{ data.email }}</a></li>
+        </ul>
+
+<!-- Necesitamos en Jinja cerrar todos los contenidos y/o bucles -->
+{% endif %}
+{% endblock %}
+

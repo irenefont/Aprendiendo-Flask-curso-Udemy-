@@ -1,0 +1,25 @@
+<!-- Vamos a heredar de la plantilla base.html-->
+<!--usamos bloques (en este caso titulo y contenido) para modificar el contenido de la plantilla base-->
+
+{% extends 'base.html' %}
+{% block title %}Página de inicio{% endblock %}
+
+{% block content %}
+    {% if name == 'Irene' %}
+        <p style="color:#a434f0">Hola, <a style="color:#E818AC">{{ name }}</a></p>
+    {% elif name %}
+        <p style="color:blue">Hola, {{ name | upper }}</p>
+    {% else %}
+        <p style="color:red">Hola, desconocido. Identifíquese.</p>
+    {% endif %}
+
+    <h2>Lista de amigos</h2>
+    <ul style="color:BlueViolet">
+        {% for friend in friends | reverse %}
+            <li>{{ friend }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>La fecha de hoy es: {{date | filtro_today}}</p>
+    <p>La frase repetida es: {{ repeat('string ', 4) }}</p>
+{% endblock %}

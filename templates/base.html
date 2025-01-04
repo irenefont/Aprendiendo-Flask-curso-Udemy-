@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Irene's web - {% block title %}{% endblock %}</title>
+    <link rel="icon" href="../static/img/favicon.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Inicio</a></li>
+            <li><a href="{{ url_for('hello') }}">Saludar</a></li>
+            <li><a href="{{ url_for('code', code = '¡HOLA!') }}">Code</a></li>
+        </ul>
+    </nav>
+
+    <h1>Bienvenido a mi sitio web con Flask</h1>
+    <br>
+
+    {% block content %}
+    <!-- Aquí irá el contenido de la página -->
+    {% endblock %}
+    <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+
+</body>
+
+<footer>
+    <p>© 2024 - 2026 Irene's first web</p>
+</footer>
+</html>

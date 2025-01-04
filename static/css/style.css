@@ -1,0 +1,14 @@
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: Ivory;
+/* OTRAS FUENTES QUE ME GUSTAN:
+
+'Courier New', monospace; 'Copperplate', fantasy;
+ */
+}
+
+h1 {
+    font-size: 2em;
+    color: Indigo;
+    text-align: center;
+}
