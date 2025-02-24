@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<section class="container-fuid">
+    <nav class="navbar">
+        <h1>{% block title %}Lista de tareas{% endblock %}</h1>
+        <a href="{{ url_for('todo.create')}}" class="btn btn-sm" style="background-color: #cc9faf; border-color: #cc9faf">Crear tarea</a>
+    </nav>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col">Tareas</th>
+                <th class="col">Estado</th>
+                <th class="col" colspan="2">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos | reverse %}
+            {% if g.user.id == todo.created_by %}
+            <tr>
+                <td>
+                    <h6>{{todo.title}}</h6>
+                    <p>{{todo.desc}}</p>
+                </td>
+                <td>
+                    {% if todo.state == false %}
+                    <span style="color: #d5af7f">Incompleto</span>
+                    {% else %}
+                    <span style="color: #b2d891">Completado</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ url_for('todo.update', id = todo.id)}}" class="btn btn-sm" style="background-color: #d59abf; border-color: #d59abf">
+                      Editar
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url_for('todo.delete', id = todo.id)}}" class="btn btn-sm" style="color: #FFFF; background-color: #9a537f; border-color: #9a537f">
+                      Eliminar
+                    </a>
+                </td>
+            </tr>
+            {% endif%}
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

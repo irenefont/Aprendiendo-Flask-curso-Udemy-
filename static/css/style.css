@@ -1,10 +1,12 @@
 body {
     font-family: 'Times New Roman', serif;
-    background-color: Ivory;
-/* OTRAS FUENTES QUE ME GUSTAN:
 
-'Courier New', monospace; 'Copperplate', fantasy;
- */
+    /* OTRAS FUENTES QUE ME GUSTAN:
+
+    'Courier New', monospace; 'Copperplate', fantasy;
+     */
+
+    background-color: Ivory;
 }
 
 h1 {
